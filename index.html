@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Watermark Tool</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Image Watermark Tool</h1>
+      <div class="layout">
+
+        <!-- Controls Panel -->
+        <div class="controls">
+          <button class="upload-btn primary" onclick="document.getElementById('baseInput').click()">
+            📤 <span id="baseName">Upload Base Image</span>
+          </button>
+          <input type="file" id="baseInput" accept="image/*" hidden />
+
+          <button class="upload-btn" onclick="document.getElementById('wmInput').click()">
+            📤 <span id="wmName">Upload Watermark Image</span>
+          </button>
+          <input type="file" id="wmInput" accept="image/*" hidden />
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span>Size</span><span id="sizeVal">75%</span>
+            </div>
+            <input type="range" id="size" min="5" max="200" value="75" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span>Opacity</span><span id="opacityVal">50%</span>
+            </div>
+            <input type="range" id="opacity" min="0" max="100" value="50" />
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <span>Rotation</span><span id="rotationVal">0°</span>
+            </div>
+            <input type="range" id="rotation" min="0" max="360" value="0" />
+          </div>
+
+          <div class="slider-group">
+            <span>Position</span>
+            <div class="position-grid" id="positionGrid">
+              <button data-pos="top-left">TL</button>
+              <button data-pos="top-center">TC</button>
+              <button data-pos="top-right">TR</button>
+              <button data-pos="middle-left">ML</button>
+              <button data-pos="center">C</button>
+              <button data-pos="middle-right">MR</button>
+              <button data-pos="bottom-left">BL</button>
+              <button data-pos="bottom-center">BC</button>
+              <button data-pos="bottom-right" class="active">BR</button>
+            </div>
+          </div>
+
+          <button class="download-btn" id="downloadBtn" disabled>⬇ Download Image</button>
+        </div>
+
+        <!-- Canvas Preview -->
+        <div class="preview">
+          <canvas id="canvas"></canvas>
+          <p id="placeholder">Upload a base image to get started</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
